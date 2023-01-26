@@ -40,6 +40,20 @@ namespace ProductManagement.Forms
                         break;
                 }
             }
+
+            this.KeyDown += MainForm_KeyDown;
+            
+            
+        }
+
+        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.B)
+            {
+                this.KeyPreview = true;
+                this.Close();
+                Application.Exit();
+            }
         }
 
         private void Button_ItemClick(object sender, ItemClickEventArgs e)
@@ -246,10 +260,9 @@ namespace ProductManagement.Forms
 
         private void NewProduct()
         {
-            
+            txtSavedDate.Text = DateTime.Now.ToShortDateString();
             txtStockKeepingUnit.Text = string.Empty;
             txtBarcode.Text = string.Empty;
-            txtSavedDate.Text = string.Empty;
             txtProductName.Text = string.Empty;
         }
 
@@ -284,6 +297,7 @@ namespace ProductManagement.Forms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            txtSavedDate.Text = DateTime.Now.ToShortDateString();
             RefreshProducts();
         }
 
