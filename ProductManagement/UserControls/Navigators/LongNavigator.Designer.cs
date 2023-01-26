@@ -37,6 +37,8 @@
             // 
             // Navigator
             // 
+            this.Navigator.Appearance.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.Navigator.Appearance.Options.UseForeColor = true;
             this.Navigator.Buttons.Append.Visible = false;
             this.Navigator.Buttons.CancelEdit.Visible = false;
             this.Navigator.Buttons.Edit.Visible = false;
@@ -54,7 +56,8 @@
             this.Navigator.Name = "Navigator";
             this.Navigator.Size = new System.Drawing.Size(800, 24);
             this.Navigator.TabIndex = 0;
-            this.Navigator.TextStringFormat = "Record {0} / {1}";
+            this.Navigator.TextLocation = DevExpress.XtraEditors.NavigatorButtonsTextLocation.Begin;
+            this.Navigator.TextStringFormat = "Records ( {0} / {1} )";
             // 
             // imageCollection
             // 

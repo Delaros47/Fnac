@@ -51,6 +51,7 @@
             this.btnTxtFile = new DevExpress.XtraBars.BarButtonItem();
             this.btnSave = new DevExpress.XtraBars.BarButtonItem();
             this.btnColumns = new DevExpress.XtraBars.BarButtonItem();
+            this.barNew = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPageProducts = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
@@ -75,6 +76,16 @@
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
+            this.barNewDescription = new DevExpress.XtraBars.BarStaticItem();
+            this.barSave = new DevExpress.XtraBars.BarStaticItem();
+            this.barSaveDescription = new DevExpress.XtraBars.BarStaticItem();
+            this.barUpdate = new DevExpress.XtraBars.BarStaticItem();
+            this.barUpdateDescription = new DevExpress.XtraBars.BarStaticItem();
+            this.barDelete = new DevExpress.XtraBars.BarStaticItem();
+            this.barDeleteDescription = new DevExpress.XtraBars.BarStaticItem();
+            this.barRefresh = new DevExpress.XtraBars.BarStaticItem();
+            this.barRefreshDescription = new DevExpress.XtraBars.BarStaticItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewProducts)).BeginInit();
@@ -92,6 +103,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -114,13 +126,23 @@
             this.btnExcelFileFormatted,
             this.btnExcelFileUnformatted,
             this.btnPdfFile,
-            this.btnTxtFile});
+            this.btnTxtFile,
+            this.barNew,
+            this.barNewDescription,
+            this.barSave,
+            this.barSaveDescription,
+            this.barUpdate,
+            this.barUpdateDescription,
+            this.barDelete,
+            this.barDeleteDescription,
+            this.barRefresh,
+            this.barRefreshDescription});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 17;
+            this.ribbon.MaxItemId = 27;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPageProducts});
-            this.ribbon.Size = new System.Drawing.Size(1290, 143);
+            this.ribbon.Size = new System.Drawing.Size(1258, 143);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // btnProducts
@@ -257,6 +279,16 @@
             this.btnColumns.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.C));
             this.btnColumns.Name = "btnColumns";
             // 
+            // barNew
+            // 
+            this.barNew.Caption = "F1 :";
+            this.barNew.Id = 17;
+            this.barNew.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.barNew.ItemAppearance.Normal.ForeColor = System.Drawing.Color.DarkBlue;
+            this.barNew.ItemAppearance.Normal.Options.UseFont = true;
+            this.barNew.ItemAppearance.Normal.Options.UseForeColor = true;
+            this.barNew.Name = "barNew";
+            // 
             // ribbonPageProducts
             // 
             this.ribbonPageProducts.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -278,19 +310,29 @@
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 868);
+            this.ribbonStatusBar.ItemLinks.Add(this.barNew);
+            this.ribbonStatusBar.ItemLinks.Add(this.barNewDescription);
+            this.ribbonStatusBar.ItemLinks.Add(this.barSave, true);
+            this.ribbonStatusBar.ItemLinks.Add(this.barSaveDescription);
+            this.ribbonStatusBar.ItemLinks.Add(this.barUpdate, true);
+            this.ribbonStatusBar.ItemLinks.Add(this.barUpdateDescription);
+            this.ribbonStatusBar.ItemLinks.Add(this.barDelete, true);
+            this.ribbonStatusBar.ItemLinks.Add(this.barDeleteDescription);
+            this.ribbonStatusBar.ItemLinks.Add(this.barRefresh, true);
+            this.ribbonStatusBar.ItemLinks.Add(this.barRefreshDescription);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 822);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1290, 31);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1258, 31);
             // 
             // gridControlProducts
             // 
             this.gridControlProducts.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gridControlProducts.Location = new System.Drawing.Point(0, 341);
+            this.gridControlProducts.Location = new System.Drawing.Point(0, 295);
             this.gridControlProducts.MainView = this.gridViewProducts;
             this.gridControlProducts.MenuManager = this.ribbon;
             this.gridControlProducts.Name = "gridControlProducts";
-            this.gridControlProducts.Size = new System.Drawing.Size(1290, 503);
+            this.gridControlProducts.Size = new System.Drawing.Size(1258, 503);
             this.gridControlProducts.TabIndex = 2;
             this.gridControlProducts.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewProducts});
@@ -401,9 +443,9 @@
             // longNavigator
             // 
             this.longNavigator.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.longNavigator.Location = new System.Drawing.Point(0, 844);
+            this.longNavigator.Location = new System.Drawing.Point(0, 798);
             this.longNavigator.Name = "longNavigator";
-            this.longNavigator.Size = new System.Drawing.Size(1290, 24);
+            this.longNavigator.Size = new System.Drawing.Size(1258, 24);
             this.longNavigator.TabIndex = 5;
             // 
             // myDataLayoutControl
@@ -418,7 +460,7 @@
             this.myDataLayoutControl.Name = "myDataLayoutControl";
             this.myDataLayoutControl.OptionsFocus.EnableAutoTabOrder = false;
             this.myDataLayoutControl.Root = this.Root;
-            this.myDataLayoutControl.Size = new System.Drawing.Size(367, 198);
+            this.myDataLayoutControl.Size = new System.Drawing.Size(367, 152);
             this.myDataLayoutControl.TabIndex = 0;
             this.myDataLayoutControl.Text = "myDataLayoutControl1";
             // 
@@ -431,7 +473,7 @@
             this.txtProductName.Properties.AppearanceFocused.BackColor = System.Drawing.Color.LightCyan;
             this.txtProductName.Properties.AppearanceFocused.Options.UseBackColor = true;
             this.txtProductName.Properties.MaxLength = 250;
-            this.txtProductName.Size = new System.Drawing.Size(244, 78);
+            this.txtProductName.Size = new System.Drawing.Size(244, 32);
             this.txtProductName.StyleController = this.myDataLayoutControl;
             this.txtProductName.TabIndex = 4;
             // 
@@ -451,7 +493,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtSavedDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtSavedDate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.txtSavedDate.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.DateTimeMaskManager));
             this.txtSavedDate.Properties.MaskSettings.Set("useAdvancingCaret", true);
             this.txtSavedDate.Size = new System.Drawing.Size(244, 20);
@@ -530,7 +571,7 @@
             rowDefinition3,
             rowDefinition4,
             rowDefinition5});
-            this.Root.Size = new System.Drawing.Size(367, 198);
+            this.Root.Size = new System.Drawing.Size(367, 152);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
@@ -596,17 +637,97 @@
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 96);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.OptionsTableLayoutItem.RowIndex = 4;
-            this.layoutControlItem5.Size = new System.Drawing.Size(347, 82);
+            this.layoutControlItem5.Size = new System.Drawing.Size(347, 36);
             this.layoutControlItem5.Text = "Product Name";
             this.layoutControlItem5.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.layoutControlItem5.TextSize = new System.Drawing.Size(89, 13);
             this.layoutControlItem5.TextToControlDistance = 10;
             // 
+            // pictureEdit1
+            // 
+            this.pictureEdit1.Location = new System.Drawing.Point(954, 158);
+            this.pictureEdit1.MenuManager = this.ribbon;
+            this.pictureEdit1.Name = "pictureEdit1";
+            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit1.Size = new System.Drawing.Size(294, 104);
+            this.pictureEdit1.TabIndex = 8;
+            // 
+            // barNewDescription
+            // 
+            this.barNewDescription.Caption = "New";
+            this.barNewDescription.Id = 18;
+            this.barNewDescription.Name = "barNewDescription";
+            // 
+            // barSave
+            // 
+            this.barSave.Caption = "F2 :";
+            this.barSave.Id = 19;
+            this.barSave.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.barSave.ItemAppearance.Normal.ForeColor = System.Drawing.Color.DarkBlue;
+            this.barSave.ItemAppearance.Normal.Options.UseFont = true;
+            this.barSave.ItemAppearance.Normal.Options.UseForeColor = true;
+            this.barSave.Name = "barSave";
+            // 
+            // barSaveDescription
+            // 
+            this.barSaveDescription.Caption = "Save";
+            this.barSaveDescription.Id = 20;
+            this.barSaveDescription.Name = "barSaveDescription";
+            // 
+            // barUpdate
+            // 
+            this.barUpdate.Caption = "F3 :";
+            this.barUpdate.Id = 21;
+            this.barUpdate.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.barUpdate.ItemAppearance.Normal.ForeColor = System.Drawing.Color.DarkBlue;
+            this.barUpdate.ItemAppearance.Normal.Options.UseFont = true;
+            this.barUpdate.ItemAppearance.Normal.Options.UseForeColor = true;
+            this.barUpdate.Name = "barUpdate";
+            // 
+            // barUpdateDescription
+            // 
+            this.barUpdateDescription.Caption = "Update";
+            this.barUpdateDescription.Id = 22;
+            this.barUpdateDescription.Name = "barUpdateDescription";
+            // 
+            // barDelete
+            // 
+            this.barDelete.Caption = "Del :";
+            this.barDelete.Id = 23;
+            this.barDelete.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.barDelete.ItemAppearance.Normal.ForeColor = System.Drawing.Color.DarkBlue;
+            this.barDelete.ItemAppearance.Normal.Options.UseFont = true;
+            this.barDelete.ItemAppearance.Normal.Options.UseForeColor = true;
+            this.barDelete.Name = "barDelete";
+            // 
+            // barDeleteDescription
+            // 
+            this.barDeleteDescription.Caption = "Delete";
+            this.barDeleteDescription.Id = 24;
+            this.barDeleteDescription.Name = "barDeleteDescription";
+            // 
+            // barRefresh
+            // 
+            this.barRefresh.Caption = "F5 :";
+            this.barRefresh.Id = 25;
+            this.barRefresh.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.barRefresh.ItemAppearance.Normal.ForeColor = System.Drawing.Color.DarkBlue;
+            this.barRefresh.ItemAppearance.Normal.Options.UseFont = true;
+            this.barRefresh.ItemAppearance.Normal.Options.UseForeColor = true;
+            this.barRefresh.Name = "barRefresh";
+            // 
+            // barRefreshDescription
+            // 
+            this.barRefreshDescription.Caption = "Refresh Products";
+            this.barRefreshDescription.Id = 26;
+            this.barRefreshDescription.Name = "barRefreshDescription";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1290, 899);
+            this.ClientSize = new System.Drawing.Size(1258, 853);
+            this.Controls.Add(this.pictureEdit1);
             this.Controls.Add(this.myDataLayoutControl);
             this.Controls.Add(this.gridControlProducts);
             this.Controls.Add(this.longNavigator);
@@ -636,6 +757,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -683,5 +805,16 @@
         private DevExpress.XtraBars.BarButtonItem btnWordFile;
         private DevExpress.XtraBars.BarButtonItem btnPdfFile;
         private DevExpress.XtraBars.BarButtonItem btnTxtFile;
+        private DevExpress.XtraBars.BarStaticItem barNew;
+        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
+        private DevExpress.XtraBars.BarStaticItem barNewDescription;
+        private DevExpress.XtraBars.BarStaticItem barSave;
+        private DevExpress.XtraBars.BarStaticItem barSaveDescription;
+        private DevExpress.XtraBars.BarStaticItem barUpdate;
+        private DevExpress.XtraBars.BarStaticItem barUpdateDescription;
+        private DevExpress.XtraBars.BarStaticItem barDelete;
+        private DevExpress.XtraBars.BarStaticItem barDeleteDescription;
+        private DevExpress.XtraBars.BarStaticItem barRefresh;
+        private DevExpress.XtraBars.BarStaticItem barRefreshDescription;
     }
 }
