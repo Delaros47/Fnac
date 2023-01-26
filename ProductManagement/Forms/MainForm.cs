@@ -69,7 +69,8 @@ namespace ProductManagement.Forms
 
                 XtraMessageBox.Show($"File has successfully exported to {filePath}","Exporting file",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
-            }else if (e.Item==btnExcelFileFormatted)
+            }
+            else if (e.Item==btnExcelFileFormatted)
             {
                 if (!Directory.Exists(Application.StartupPath + @"\Export\"))
                 {
@@ -128,7 +129,6 @@ namespace ProductManagement.Forms
                 }
 
                 var filePath = Application.StartupPath + "\\Export\\" + DateTime.Now.ToLongDateString() + " " + DateTime.Now.Hour + ";" + DateTime.Now.Minute + ";" + DateTime.Now.Second;
-
                 filePath = filePath + ".Pdf";
                 gridViewProducts.ExportToPdf(filePath);
 

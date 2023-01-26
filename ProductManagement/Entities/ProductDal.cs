@@ -68,12 +68,12 @@ namespace ProductManagement.Entities
             CheckConnection();
 
             OleDbCommand command = new OleDbCommand("UPDATE Products SET BoxNumber=@BoxNumber,StockKeepingUnit=@StockKeepingUnit,Barcode=@Barcode,SavedDateTime=@SavedDateTime,ProductName=@ProductName WHERE ProductID=@ProductID",_conection);
-            command.Parameters.AddWithValue("@ProductID",product.ProductID);
             command.Parameters.AddWithValue("@BoxNumber", product.BoxNumber);
             command.Parameters.AddWithValue("@StockKeepingUnit", product.StockKeepingUnit);
             command.Parameters.AddWithValue("@Barcode", product.Barcode);
             command.Parameters.AddWithValue("@SavedDateTime", product.SavedDateTime);
             command.Parameters.AddWithValue("@ProductName", product.ProductName);
+            command.Parameters.AddWithValue("@ProductID", product.ProductID);
             command.ExecuteNonQuery();
             _conection.Close();
 
