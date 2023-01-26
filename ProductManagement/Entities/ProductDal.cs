@@ -53,12 +53,12 @@ namespace ProductManagement.Entities
         {
             CheckConnection();
 
-            OleDbCommand command = new OleDbCommand("INSERT INTO Products VALUES(@BoxNumber,@StockKeepingUnit,@Barcode,@ProductName,@SavedDateTime)",_conection);
+            OleDbCommand command = new OleDbCommand("INSERT INTO Products(BoxNumber,StockKeepingUnit,Barcode,SavedDateTime,ProductName)VALUES(@BoxNumber,@StockKeepingUnit,@Barcode,@SavedDateTime,@ProductName)", _conection);
             command.Parameters.AddWithValue("@BoxNumber", product.BoxNumber);
             command.Parameters.AddWithValue("@StockKeepingUnit", product.StockKeepingUnit);
             command.Parameters.AddWithValue("@Barcode", product.Barcode);
-            command.Parameters.AddWithValue("@ProductName", product.ProductName);
             command.Parameters.AddWithValue("@SavedDateTime", product.SavedDateTime);
+            command.Parameters.AddWithValue("@ProductName", product.ProductName);
             command.ExecuteNonQuery();
             _conection.Close();
         }
