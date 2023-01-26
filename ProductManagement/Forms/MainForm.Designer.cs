@@ -330,7 +330,7 @@
             this.gridViewProducts.OptionsView.ShowGroupPanel = false;
             this.gridViewProducts.OptionsView.ShowViewCaption = true;
             this.gridViewProducts.ViewCaption = "Products";
-            this.gridViewProducts.DoubleClick += new System.EventHandler(this.gridViewProducts_DoubleClick);
+            this.gridViewProducts.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewProducts_FocusedRowChanged);
             // 
             // colProductID
             // 

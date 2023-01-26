@@ -62,5 +62,36 @@ namespace ProductManagement.Entities
             command.ExecuteNonQuery();
             _conection.Close();
         }
+
+        public void Update(Product product)
+        {
+            CheckConnection();
+
+            OleDbCommand command = new OleDbCommand("UPDATE Products SET BoxNumber=@BoxNumber,StockKeepingUnit=@StockKeepingUnit,Barcode=@Barcode,SavedDateTime=@SavedDateTime,ProductName=@ProductName WHERE ProductID=@ProductID",_conection);
+            command.Parameters.AddWithValue("@ProductID",product.ProductID);
+            command.Parameters.AddWithValue("@BoxNumber", product.BoxNumber);
+            command.Parameters.AddWithValue("@StockKeepingUnit", product.StockKeepingUnit);
+            command.Parameters.AddWithValue("@Barcode", product.Barcode);
+            command.Parameters.AddWithValue("@SavedDateTime", product.SavedDateTime);
+            command.Parameters.AddWithValue("@ProductName", product.ProductName);
+            command.ExecuteNonQuery();
+            _conection.Close();
+
+        }
+
+        public void Delete(int productID)
+        {
+            CheckConnection();
+
+            OleDbCommand command = new OleDbCommand("DELETE FROM Products WHERE ProductID=@ProductID",_conection);
+            command.Parameters.AddWithValue("@ProductID", productID);
+            command.ExecuteNonQuery();
+            _conection.Close();
+
+        }
+
+
+
+
     }
 }
