@@ -29,12 +29,17 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.XtraLayout.ColumnDefinition columnDefinition1 = new DevExpress.XtraLayout.ColumnDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition1 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition2 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition3 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition4 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition5 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule2 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRule3ColorScale formatConditionRule3ColorScale2 = new DevExpress.XtraEditors.FormatConditionRule3ColorScale();
+            DevExpress.XtraLayout.ColumnDefinition columnDefinition2 = new DevExpress.XtraLayout.ColumnDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition6 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition7 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition8 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition9 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition10 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraPrinting.BarCode.EAN13Generator eaN13Generator2 = new DevExpress.XtraPrinting.BarCode.EAN13Generator();
+            DevExpress.XtraPrinting.BarCode.EAN8Generator eaN8Generator2 = new DevExpress.XtraPrinting.BarCode.EAN8Generator();
+            this.colSavedDateTime = new ProductManagement.UserControls.Grids.MyGridColumn();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnProducts = new DevExpress.XtraBars.BarButtonItem();
             this.btnNew = new DevExpress.XtraBars.BarButtonItem();
@@ -74,16 +79,15 @@
             this.gridViewProducts = new ProductManagement.UserControls.Grids.MyGridView();
             this.colProductID = new ProductManagement.UserControls.Grids.MyGridColumn();
             this.colBoxNumber = new ProductManagement.UserControls.Grids.MyGridColumn();
-            this.colStockKeepingUnit = new ProductManagement.UserControls.Grids.MyGridColumn();
-            this.colBarcode = new ProductManagement.UserControls.Grids.MyGridColumn();
+            this.colEan8 = new ProductManagement.UserControls.Grids.MyGridColumn();
+            this.colEan13 = new ProductManagement.UserControls.Grids.MyGridColumn();
             this.colProductName = new ProductManagement.UserControls.Grids.MyGridColumn();
-            this.colSavedDateTime = new ProductManagement.UserControls.Grids.MyGridColumn();
             this.longNavigator = new ProductManagement.UserControls.Navigators.LongNavigator();
             this.myDataLayoutControl = new ProductManagement.UserControls.Controls.MyDataLayoutControl();
             this.txtProductName = new ProductManagement.UserControls.Controls.MyMemoEdit();
             this.txtSavedDate = new ProductManagement.UserControls.Controls.MyDateEdit();
-            this.txtBarcode = new ProductManagement.UserControls.Controls.MyTextEdit();
-            this.txtStockKeepingUnit = new ProductManagement.UserControls.Controls.MyTextEdit();
+            this.txtEan13 = new ProductManagement.UserControls.Controls.MyTextEdit();
+            this.txtEan8 = new ProductManagement.UserControls.Controls.MyTextEdit();
             this.txtBoxNumber = new ProductManagement.UserControls.Controls.MyTextEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -92,6 +96,14 @@
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.barCodeControlEan13 = new DevExpress.XtraEditors.BarCodeControl();
+            this.lblSearch = new DevExpress.XtraEditors.LabelControl();
+            this.txtSearchEan13 = new ProductManagement.UserControls.Controls.MyTextEdit();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.barCodeControlEan8 = new DevExpress.XtraEditors.BarCodeControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.txtSearchEan8 = new ProductManagement.UserControls.Controls.MyTextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewProducts)).BeginInit();
@@ -100,8 +112,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtProductName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSavedDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSavedDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBarcode.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtStockKeepingUnit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEan13.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEan8.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
@@ -110,7 +122,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSearchEan13.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSearchEan8.Properties)).BeginInit();
             this.SuspendLayout();
+            // 
+            // colSavedDateTime
+            // 
+            this.colSavedDateTime.AppearanceCell.Options.UseTextOptions = true;
+            this.colSavedDateTime.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colSavedDateTime.Caption = "Date Time";
+            this.colSavedDateTime.FieldName = "SavedDateTime";
+            this.colSavedDateTime.Name = "colSavedDateTime";
+            this.colSavedDateTime.OptionsColumn.AllowEdit = false;
+            this.colSavedDateTime.Visible = true;
+            this.colSavedDateTime.VisibleIndex = 3;
+            this.colSavedDateTime.Width = 150;
             // 
             // ribbon
             // 
@@ -488,10 +518,14 @@
             this.gridViewProducts.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colProductID,
             this.colBoxNumber,
-            this.colStockKeepingUnit,
-            this.colBarcode,
+            this.colEan8,
+            this.colEan13,
             this.colProductName,
             this.colSavedDateTime});
+            gridFormatRule2.Column = this.colSavedDateTime;
+            gridFormatRule2.Name = "Format0";
+            gridFormatRule2.Rule = formatConditionRule3ColorScale2;
+            this.gridViewProducts.FormatRules.Add(gridFormatRule2);
             this.gridViewProducts.GridControl = this.gridControlProducts;
             this.gridViewProducts.Name = "gridViewProducts";
             this.gridViewProducts.OptionsMenu.EnableColumnMenu = false;
@@ -528,31 +562,31 @@
             this.colBoxNumber.OptionsColumn.AllowEdit = false;
             this.colBoxNumber.Visible = true;
             this.colBoxNumber.VisibleIndex = 0;
-            this.colBoxNumber.Width = 200;
+            this.colBoxNumber.Width = 150;
             // 
-            // colStockKeepingUnit
+            // colEan8
             // 
-            this.colStockKeepingUnit.AppearanceCell.Options.UseTextOptions = true;
-            this.colStockKeepingUnit.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colStockKeepingUnit.Caption = "Stock Keeping Unit";
-            this.colStockKeepingUnit.FieldName = "StockKeepingUnit";
-            this.colStockKeepingUnit.Name = "colStockKeepingUnit";
-            this.colStockKeepingUnit.OptionsColumn.AllowEdit = false;
-            this.colStockKeepingUnit.Visible = true;
-            this.colStockKeepingUnit.VisibleIndex = 1;
-            this.colStockKeepingUnit.Width = 200;
+            this.colEan8.AppearanceCell.Options.UseTextOptions = true;
+            this.colEan8.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colEan8.Caption = "EAN-8";
+            this.colEan8.FieldName = "Ean8";
+            this.colEan8.Name = "colEan8";
+            this.colEan8.OptionsColumn.AllowEdit = false;
+            this.colEan8.Visible = true;
+            this.colEan8.VisibleIndex = 1;
+            this.colEan8.Width = 170;
             // 
-            // colBarcode
+            // colEan13
             // 
-            this.colBarcode.AppearanceCell.Options.UseTextOptions = true;
-            this.colBarcode.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colBarcode.Caption = "Barcode";
-            this.colBarcode.FieldName = "Barcode";
-            this.colBarcode.Name = "colBarcode";
-            this.colBarcode.OptionsColumn.AllowEdit = false;
-            this.colBarcode.Visible = true;
-            this.colBarcode.VisibleIndex = 2;
-            this.colBarcode.Width = 225;
+            this.colEan13.AppearanceCell.Options.UseTextOptions = true;
+            this.colEan13.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colEan13.Caption = "EAN-13";
+            this.colEan13.FieldName = "Ean13";
+            this.colEan13.Name = "colEan13";
+            this.colEan13.OptionsColumn.AllowEdit = false;
+            this.colEan13.Visible = true;
+            this.colEan13.VisibleIndex = 2;
+            this.colEan13.Width = 225;
             // 
             // colProductName
             // 
@@ -563,18 +597,6 @@
             this.colProductName.Visible = true;
             this.colProductName.VisibleIndex = 4;
             this.colProductName.Width = 475;
-            // 
-            // colSavedDateTime
-            // 
-            this.colSavedDateTime.AppearanceCell.Options.UseTextOptions = true;
-            this.colSavedDateTime.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colSavedDateTime.Caption = "Date Time";
-            this.colSavedDateTime.FieldName = "SavedDateTime";
-            this.colSavedDateTime.Name = "colSavedDateTime";
-            this.colSavedDateTime.OptionsColumn.AllowEdit = false;
-            this.colSavedDateTime.Visible = true;
-            this.colSavedDateTime.VisibleIndex = 3;
-            this.colSavedDateTime.Width = 150;
             // 
             // longNavigator
             // 
@@ -588,8 +610,8 @@
             // 
             this.myDataLayoutControl.Controls.Add(this.txtProductName);
             this.myDataLayoutControl.Controls.Add(this.txtSavedDate);
-            this.myDataLayoutControl.Controls.Add(this.txtBarcode);
-            this.myDataLayoutControl.Controls.Add(this.txtStockKeepingUnit);
+            this.myDataLayoutControl.Controls.Add(this.txtEan13);
+            this.myDataLayoutControl.Controls.Add(this.txtEan8);
             this.myDataLayoutControl.Controls.Add(this.txtBoxNumber);
             this.myDataLayoutControl.Dock = System.Windows.Forms.DockStyle.Left;
             this.myDataLayoutControl.Location = new System.Drawing.Point(0, 143);
@@ -606,6 +628,8 @@
             this.txtProductName.Location = new System.Drawing.Point(111, 108);
             this.txtProductName.MenuManager = this.ribbon;
             this.txtProductName.Name = "txtProductName";
+            this.txtProductName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.txtProductName.Properties.Appearance.Options.UseFont = true;
             this.txtProductName.Properties.AppearanceFocused.BackColor = System.Drawing.Color.LightCyan;
             this.txtProductName.Properties.AppearanceFocused.Options.UseBackColor = true;
             this.txtProductName.Properties.MaxLength = 250;
@@ -621,6 +645,8 @@
             this.txtSavedDate.MenuManager = this.ribbon;
             this.txtSavedDate.Name = "txtSavedDate";
             this.txtSavedDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.txtSavedDate.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.txtSavedDate.Properties.Appearance.Options.UseFont = true;
             this.txtSavedDate.Properties.Appearance.Options.UseTextOptions = true;
             this.txtSavedDate.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.txtSavedDate.Properties.AppearanceFocused.BackColor = System.Drawing.Color.LightCyan;
@@ -629,38 +655,45 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtSavedDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtSavedDate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.txtSavedDate.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.DateTimeMaskManager));
             this.txtSavedDate.Properties.MaskSettings.Set("useAdvancingCaret", true);
             this.txtSavedDate.Size = new System.Drawing.Size(244, 20);
             this.txtSavedDate.StyleController = this.myDataLayoutControl;
             this.txtSavedDate.TabIndex = 3;
             // 
-            // txtBarcode
+            // txtEan13
             // 
-            this.txtBarcode.EnterMoveNextControl = true;
-            this.txtBarcode.Location = new System.Drawing.Point(111, 60);
-            this.txtBarcode.MenuManager = this.ribbon;
-            this.txtBarcode.Name = "txtBarcode";
-            this.txtBarcode.Properties.AppearanceFocused.BackColor = System.Drawing.Color.LightCyan;
-            this.txtBarcode.Properties.AppearanceFocused.Options.UseBackColor = true;
-            this.txtBarcode.Properties.MaxLength = 50;
-            this.txtBarcode.Size = new System.Drawing.Size(244, 20);
-            this.txtBarcode.StyleController = this.myDataLayoutControl;
-            this.txtBarcode.TabIndex = 2;
+            this.txtEan13.EnterMoveNextControl = true;
+            this.txtEan13.Location = new System.Drawing.Point(111, 60);
+            this.txtEan13.MenuManager = this.ribbon;
+            this.txtEan13.Name = "txtEan13";
+            this.txtEan13.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.txtEan13.Properties.Appearance.Options.UseFont = true;
+            this.txtEan13.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtEan13.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtEan13.Properties.AppearanceFocused.BackColor = System.Drawing.Color.LightCyan;
+            this.txtEan13.Properties.AppearanceFocused.Options.UseBackColor = true;
+            this.txtEan13.Properties.MaxLength = 50;
+            this.txtEan13.Size = new System.Drawing.Size(244, 20);
+            this.txtEan13.StyleController = this.myDataLayoutControl;
+            this.txtEan13.TabIndex = 2;
             // 
-            // txtStockKeepingUnit
+            // txtEan8
             // 
-            this.txtStockKeepingUnit.EnterMoveNextControl = true;
-            this.txtStockKeepingUnit.Location = new System.Drawing.Point(111, 36);
-            this.txtStockKeepingUnit.MenuManager = this.ribbon;
-            this.txtStockKeepingUnit.Name = "txtStockKeepingUnit";
-            this.txtStockKeepingUnit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.LightCyan;
-            this.txtStockKeepingUnit.Properties.AppearanceFocused.Options.UseBackColor = true;
-            this.txtStockKeepingUnit.Properties.MaxLength = 50;
-            this.txtStockKeepingUnit.Size = new System.Drawing.Size(244, 20);
-            this.txtStockKeepingUnit.StyleController = this.myDataLayoutControl;
-            this.txtStockKeepingUnit.TabIndex = 1;
+            this.txtEan8.EnterMoveNextControl = true;
+            this.txtEan8.Location = new System.Drawing.Point(111, 36);
+            this.txtEan8.MenuManager = this.ribbon;
+            this.txtEan8.Name = "txtEan8";
+            this.txtEan8.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.txtEan8.Properties.Appearance.Options.UseFont = true;
+            this.txtEan8.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtEan8.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtEan8.Properties.AppearanceFocused.BackColor = System.Drawing.Color.LightCyan;
+            this.txtEan8.Properties.AppearanceFocused.Options.UseBackColor = true;
+            this.txtEan8.Properties.MaxLength = 50;
+            this.txtEan8.Size = new System.Drawing.Size(244, 20);
+            this.txtEan8.StyleController = this.myDataLayoutControl;
+            this.txtEan8.TabIndex = 1;
             // 
             // txtBoxNumber
             // 
@@ -669,6 +702,10 @@
             this.txtBoxNumber.Location = new System.Drawing.Point(111, 12);
             this.txtBoxNumber.MenuManager = this.ribbon;
             this.txtBoxNumber.Name = "txtBoxNumber";
+            this.txtBoxNumber.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.txtBoxNumber.Properties.Appearance.Options.UseFont = true;
+            this.txtBoxNumber.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtBoxNumber.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.txtBoxNumber.Properties.AppearanceFocused.BackColor = System.Drawing.Color.LightCyan;
             this.txtBoxNumber.Properties.AppearanceFocused.Options.UseBackColor = true;
             this.txtBoxNumber.Properties.MaxLength = 50;
@@ -688,26 +725,26 @@
             this.layoutControlItem5});
             this.Root.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Table;
             this.Root.Name = "Root";
-            columnDefinition1.SizeType = System.Windows.Forms.SizeType.Absolute;
-            columnDefinition1.Width = 210D;
+            columnDefinition2.SizeType = System.Windows.Forms.SizeType.Absolute;
+            columnDefinition2.Width = 210D;
             this.Root.OptionsTableLayoutGroup.ColumnDefinitions.AddRange(new DevExpress.XtraLayout.ColumnDefinition[] {
-            columnDefinition1});
-            rowDefinition1.Height = 24D;
-            rowDefinition1.SizeType = System.Windows.Forms.SizeType.Absolute;
-            rowDefinition2.Height = 24D;
-            rowDefinition2.SizeType = System.Windows.Forms.SizeType.Absolute;
-            rowDefinition3.Height = 24D;
-            rowDefinition3.SizeType = System.Windows.Forms.SizeType.Absolute;
-            rowDefinition4.Height = 24D;
-            rowDefinition4.SizeType = System.Windows.Forms.SizeType.Absolute;
-            rowDefinition5.Height = 24D;
-            rowDefinition5.SizeType = System.Windows.Forms.SizeType.Absolute;
+            columnDefinition2});
+            rowDefinition6.Height = 24D;
+            rowDefinition6.SizeType = System.Windows.Forms.SizeType.Absolute;
+            rowDefinition7.Height = 24D;
+            rowDefinition7.SizeType = System.Windows.Forms.SizeType.Absolute;
+            rowDefinition8.Height = 24D;
+            rowDefinition8.SizeType = System.Windows.Forms.SizeType.Absolute;
+            rowDefinition9.Height = 24D;
+            rowDefinition9.SizeType = System.Windows.Forms.SizeType.Absolute;
+            rowDefinition10.Height = 24D;
+            rowDefinition10.SizeType = System.Windows.Forms.SizeType.Absolute;
             this.Root.OptionsTableLayoutGroup.RowDefinitions.AddRange(new DevExpress.XtraLayout.RowDefinition[] {
-            rowDefinition1,
-            rowDefinition2,
-            rowDefinition3,
-            rowDefinition4,
-            rowDefinition5});
+            rowDefinition6,
+            rowDefinition7,
+            rowDefinition8,
+            rowDefinition9,
+            rowDefinition10});
             this.Root.Size = new System.Drawing.Size(367, 196);
             this.Root.TextVisible = false;
             // 
@@ -728,12 +765,12 @@
             // 
             this.layoutControlItem2.AppearanceItemCaption.ForeColor = System.Drawing.Color.Maroon;
             this.layoutControlItem2.AppearanceItemCaption.Options.UseForeColor = true;
-            this.layoutControlItem2.Control = this.txtStockKeepingUnit;
+            this.layoutControlItem2.Control = this.txtEan8;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.OptionsTableLayoutItem.RowIndex = 1;
             this.layoutControlItem2.Size = new System.Drawing.Size(347, 24);
-            this.layoutControlItem2.Text = "Stock Keeping Unit";
+            this.layoutControlItem2.Text = "EAN-8";
             this.layoutControlItem2.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(89, 13);
             this.layoutControlItem2.TextToControlDistance = 10;
@@ -742,12 +779,12 @@
             // 
             this.layoutControlItem3.AppearanceItemCaption.ForeColor = System.Drawing.Color.Maroon;
             this.layoutControlItem3.AppearanceItemCaption.Options.UseForeColor = true;
-            this.layoutControlItem3.Control = this.txtBarcode;
+            this.layoutControlItem3.Control = this.txtEan13;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.OptionsTableLayoutItem.RowIndex = 2;
             this.layoutControlItem3.Size = new System.Drawing.Size(347, 24);
-            this.layoutControlItem3.Text = "Barcode";
+            this.layoutControlItem3.Text = "EAN-13";
             this.layoutControlItem3.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.layoutControlItem3.TextSize = new System.Drawing.Size(89, 13);
             this.layoutControlItem3.TextToControlDistance = 10;
@@ -782,18 +819,110 @@
             // 
             // pictureEdit1
             // 
-            this.pictureEdit1.Location = new System.Drawing.Point(856, 158);
+            this.pictureEdit1.EditValue = ((object)(resources.GetObject("pictureEdit1.EditValue")));
+            this.pictureEdit1.Location = new System.Drawing.Point(995, 158);
             this.pictureEdit1.MenuManager = this.ribbon;
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit1.Size = new System.Drawing.Size(294, 156);
-            this.pictureEdit1.TabIndex = 8;
+            this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
+            this.pictureEdit1.Size = new System.Drawing.Size(183, 156);
+            this.pictureEdit1.TabIndex = 2;
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.barCodeControlEan13);
+            this.panelControl1.Controls.Add(this.lblSearch);
+            this.panelControl1.Controls.Add(this.txtSearchEan13);
+            this.panelControl1.Location = new System.Drawing.Point(682, 158);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(289, 156);
+            this.panelControl1.TabIndex = 1;
+            // 
+            // barCodeControlEan13
+            // 
+            this.barCodeControlEan13.Location = new System.Drawing.Point(48, 48);
+            this.barCodeControlEan13.Name = "barCodeControlEan13";
+            this.barCodeControlEan13.Padding = new System.Windows.Forms.Padding(10, 2, 10, 0);
+            this.barCodeControlEan13.Size = new System.Drawing.Size(225, 94);
+            this.barCodeControlEan13.Symbology = eaN13Generator2;
+            this.barCodeControlEan13.TabIndex = 1;
+            this.barCodeControlEan13.Text = "0000000000000";
+            // 
+            // lblSearch
+            // 
+            this.lblSearch.Appearance.ForeColor = System.Drawing.Color.Maroon;
+            this.lblSearch.Appearance.Options.UseForeColor = true;
+            this.lblSearch.Location = new System.Drawing.Point(5, 24);
+            this.lblSearch.Name = "lblSearch";
+            this.lblSearch.Size = new System.Drawing.Size(36, 13);
+            this.lblSearch.TabIndex = 1;
+            this.lblSearch.Text = "EAN-13";
+            // 
+            // txtSearchEan13
+            // 
+            this.txtSearchEan13.EnterMoveNextControl = true;
+            this.txtSearchEan13.Location = new System.Drawing.Point(48, 21);
+            this.txtSearchEan13.MenuManager = this.ribbon;
+            this.txtSearchEan13.Name = "txtSearchEan13";
+            this.txtSearchEan13.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.txtSearchEan13.Properties.Appearance.Options.UseFont = true;
+            this.txtSearchEan13.Properties.AppearanceFocused.BackColor = System.Drawing.Color.LightCyan;
+            this.txtSearchEan13.Properties.AppearanceFocused.Options.UseBackColor = true;
+            this.txtSearchEan13.Properties.MaxLength = 50;
+            this.txtSearchEan13.Size = new System.Drawing.Size(225, 20);
+            this.txtSearchEan13.TabIndex = 0;
+            // 
+            // panelControl2
+            // 
+            this.panelControl2.Controls.Add(this.barCodeControlEan8);
+            this.panelControl2.Controls.Add(this.labelControl1);
+            this.panelControl2.Controls.Add(this.txtSearchEan8);
+            this.panelControl2.Location = new System.Drawing.Point(387, 158);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(289, 156);
+            this.panelControl2.TabIndex = 8;
+            // 
+            // barCodeControlEan8
+            // 
+            this.barCodeControlEan8.Location = new System.Drawing.Point(79, 47);
+            this.barCodeControlEan8.Name = "barCodeControlEan8";
+            this.barCodeControlEan8.Padding = new System.Windows.Forms.Padding(10, 2, 10, 0);
+            this.barCodeControlEan8.Size = new System.Drawing.Size(160, 94);
+            this.barCodeControlEan8.Symbology = eaN8Generator2;
+            this.barCodeControlEan8.TabIndex = 1;
+            this.barCodeControlEan8.Text = "0000000000000";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Maroon;
+            this.labelControl1.Appearance.Options.UseForeColor = true;
+            this.labelControl1.Location = new System.Drawing.Point(5, 24);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(30, 13);
+            this.labelControl1.TabIndex = 1;
+            this.labelControl1.Text = "EAN-8";
+            // 
+            // txtSearchEan8
+            // 
+            this.txtSearchEan8.EnterMoveNextControl = true;
+            this.txtSearchEan8.Location = new System.Drawing.Point(48, 21);
+            this.txtSearchEan8.MenuManager = this.ribbon;
+            this.txtSearchEan8.Name = "txtSearchEan8";
+            this.txtSearchEan8.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.txtSearchEan8.Properties.Appearance.Options.UseFont = true;
+            this.txtSearchEan8.Properties.AppearanceFocused.BackColor = System.Drawing.Color.LightCyan;
+            this.txtSearchEan8.Properties.AppearanceFocused.Options.UseBackColor = true;
+            this.txtSearchEan8.Properties.MaxLength = 50;
+            this.txtSearchEan8.Size = new System.Drawing.Size(225, 20);
+            this.txtSearchEan8.TabIndex = 0;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1190, 799);
+            this.Controls.Add(this.panelControl2);
+            this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.pictureEdit1);
             this.Controls.Add(this.myDataLayoutControl);
             this.Controls.Add(this.gridControlProducts);
@@ -815,8 +944,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtProductName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSavedDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSavedDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBarcode.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtStockKeepingUnit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEan13.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEan8.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
@@ -825,6 +954,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
+            this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSearchEan13.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
+            this.panelControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSearchEan8.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -846,18 +983,18 @@
         private UserControls.Grids.MyGridView gridViewProducts;
         private UserControls.Grids.MyGridColumn colProductID;
         private UserControls.Grids.MyGridColumn colBoxNumber;
-        private UserControls.Grids.MyGridColumn colStockKeepingUnit;
+        private UserControls.Grids.MyGridColumn colEan8;
         private UserControls.Grids.MyGridColumn colProductName;
         private UserControls.Grids.MyGridColumn colSavedDateTime;
-        private UserControls.Grids.MyGridColumn colBarcode;
+        private UserControls.Grids.MyGridColumn colEan13;
         private UserControls.Navigators.LongNavigator longNavigator;
         private DevExpress.XtraBars.BarButtonItem btnSave;
         private DevExpress.XtraBars.BarButtonItem btnColumns;
         private UserControls.Controls.MyDataLayoutControl myDataLayoutControl;
         private UserControls.Controls.MyMemoEdit txtProductName;
         private UserControls.Controls.MyDateEdit txtSavedDate;
-        private UserControls.Controls.MyTextEdit txtBarcode;
-        private UserControls.Controls.MyTextEdit txtStockKeepingUnit;
+        private UserControls.Controls.MyTextEdit txtEan13;
+        private UserControls.Controls.MyTextEdit txtEan8;
         private UserControls.Controls.MyTextEdit txtBoxNumber;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
@@ -889,5 +1026,13 @@
         private DevExpress.XtraBars.BarStaticItem barExportDescription;
         private DevExpress.XtraBars.BarStaticItem barExit;
         private DevExpress.XtraBars.BarStaticItem barExitDescription;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.BarCodeControl barCodeControlEan13;
+        private DevExpress.XtraEditors.LabelControl lblSearch;
+        private UserControls.Controls.MyTextEdit txtSearchEan13;
+        private DevExpress.XtraEditors.PanelControl panelControl2;
+        private DevExpress.XtraEditors.BarCodeControl barCodeControlEan8;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private UserControls.Controls.MyTextEdit txtSearchEan8;
     }
 }

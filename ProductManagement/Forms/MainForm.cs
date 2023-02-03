@@ -41,19 +41,19 @@ namespace ProductManagement.Forms
                 }
             }
 
-            this.KeyDown += MainForm_KeyDown;
-            
+            txtSearchEan13.EditValueChanged += TxtSearchBarcode_EditValueChanged;
+            txtSearchEan8.EditValueChanged += TxtSearchEan8_EditValueChanged;
             
         }
 
-        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        private void TxtSearchEan8_EditValueChanged(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.B)
-            {
-                this.KeyPreview = true;
-                this.Close();
-                Application.Exit();
-            }
+            gridControlProducts.DataSource = _productDal.GetAll().Where(p => p.Ean8.Contains(txtSearchEan8.Text));
+        }
+
+        private void TxtSearchBarcode_EditValueChanged(object sender, EventArgs e)
+        {
+            gridControlProducts.DataSource = _productDal.GetAll().Where(p=>p.Ean13.Contains(txtSearchEan13.Text));
         }
 
         private void Button_ItemClick(object sender, ItemClickEventArgs e)
@@ -208,8 +208,8 @@ namespace ProductManagement.Forms
                 {
                     ProductID = _productId,
                     BoxNumber = txtBoxNumber.Text,
-                    StockKeepingUnit = txtStockKeepingUnit.Text,
-                    Barcode = txtBarcode.Text,
+                    Ean8 = txtEan8.Text,
+                    Ean13 = txtEan13.Text,
                     SavedDateTime = Convert.ToDateTime(txtSavedDate.Text),
                     ProductName = txtProductName.Text
                 });
@@ -261,9 +261,11 @@ namespace ProductManagement.Forms
         private void NewProduct()
         {
             txtSavedDate.Text = DateTime.Now.ToShortDateString();
-            txtStockKeepingUnit.Text = string.Empty;
-            txtBarcode.Text = string.Empty;
+            txtEan8.Text = string.Empty;
+            txtEan13.Text = string.Empty;
             txtProductName.Text = string.Empty;
+            barCodeControlEan13.Text = "0000000000000";
+            barCodeControlEan8.Text = "00000000";
         }
 
         private void RefreshProducts()
@@ -278,8 +280,8 @@ namespace ProductManagement.Forms
                 _productDal.Insert(new Product
                 {
                     BoxNumber = txtBoxNumber.Text,
-                    StockKeepingUnit = txtStockKeepingUnit.Text,
-                    Barcode = txtBarcode.Text,
+                    Ean8 = txtEan8.Text,
+                    Ean13 = txtEan13.Text,
                     SavedDateTime = Convert.ToDateTime(txtSavedDate.Text),
                     ProductName = txtProductName.Text,
                 });
@@ -307,10 +309,12 @@ namespace ProductManagement.Forms
             {
                 _productId = (int)gridViewProducts.GetFocusedRowCellValue("ProductID");
                 txtBoxNumber.Text = gridViewProducts.GetFocusedRowCellValue("BoxNumber").ToString();
-                txtStockKeepingUnit.Text = gridViewProducts.GetFocusedRowCellValue("StockKeepingUnit").ToString();
-                txtBarcode.Text = gridViewProducts.GetFocusedRowCellValue("Barcode").ToString();
+                txtEan8.Text = gridViewProducts.GetFocusedRowCellValue("Ean8").ToString();
+                txtEan13.Text = gridViewProducts.GetFocusedRowCellValue("Ean13").ToString();
                 txtSavedDate.Text = Convert.ToDateTime(gridViewProducts.GetFocusedRowCellValue("SavedDateTime")).ToShortDateString();
                 txtProductName.Text = gridViewProducts.GetFocusedRowCellValue("ProductName").ToString();
+                barCodeControlEan13.Text = gridViewProducts.GetFocusedRowCellValue("Ean13").ToString();
+                barCodeControlEan8.Text = gridViewProducts.GetFocusedRowCellValue("Ean8").ToString();
             }
             else
             {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Net.Mime;
@@ -16,6 +17,7 @@ namespace ProductManagement.Entities
     {
         private static string myPath = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Application.StartupPath + "\\Database\\FnacDatabase.accdb;Persist Security Info=False;";
         private OleDbConnection _conection = new OleDbConnection(myPath);
+
 
         public void CheckConnection()
         {
@@ -37,10 +39,10 @@ namespace ProductManagement.Entities
                 {
                     ProductID = Convert.ToInt32(reader["ProductID"]),
                     BoxNumber = reader["BoxNumber"].ToString(),
-                    StockKeepingUnit = reader["StockKeepingUnit"].ToString(),
-                    Barcode = reader["Barcode"].ToString(),
-                    ProductName = reader["ProductName"].ToString(),
-                    SavedDateTime = Convert.ToDateTime(reader["SavedDateTime"])
+                    Ean8 = reader["Ean8"].ToString(),
+                    Ean13 = reader["Ean13"].ToString(),
+                    SavedDateTime = Convert.ToDateTime(reader["SavedDateTime"]),
+                    ProductName = reader["ProductName"].ToString()
                 };
                 products.Add(_product);
             }
@@ -53,10 +55,10 @@ namespace ProductManagement.Entities
         {
             CheckConnection();
 
-            OleDbCommand command = new OleDbCommand("INSERT INTO Products(BoxNumber,StockKeepingUnit,Barcode,SavedDateTime,ProductName)VALUES(@BoxNumber,@StockKeepingUnit,@Barcode,@SavedDateTime,@ProductName)", _conection);
+            OleDbCommand command = new OleDbCommand("INSERT INTO Products(BoxNumber,Ean8,Ean13,SavedDateTime,ProductName)VALUES(@BoxNumber,@Ean8,@Ean13,@SavedDateTime,@ProductName)", _conection);
             command.Parameters.AddWithValue("@BoxNumber", product.BoxNumber);
-            command.Parameters.AddWithValue("@StockKeepingUnit", product.StockKeepingUnit);
-            command.Parameters.AddWithValue("@Barcode", product.Barcode);
+            command.Parameters.AddWithValue("@Ean8", product.Ean8);
+            command.Parameters.AddWithValue("@Ean13", product.Ean13);
             command.Parameters.AddWithValue("@SavedDateTime", product.SavedDateTime);
             command.Parameters.AddWithValue("@ProductName", product.ProductName);
             command.ExecuteNonQuery();
@@ -67,10 +69,10 @@ namespace ProductManagement.Entities
         {
             CheckConnection();
 
-            OleDbCommand command = new OleDbCommand("UPDATE Products SET BoxNumber=@BoxNumber,StockKeepingUnit=@StockKeepingUnit,Barcode=@Barcode,SavedDateTime=@SavedDateTime,ProductName=@ProductName WHERE ProductID=@ProductID",_conection);
+            OleDbCommand command = new OleDbCommand("UPDATE Products SET BoxNumber=@BoxNumber,Ean8=@Ean8,Ean13=@Ean13,SavedDateTime=@SavedDateTime,ProductName=@ProductName WHERE ProductID=@ProductID", _conection);
             command.Parameters.AddWithValue("@BoxNumber", product.BoxNumber);
-            command.Parameters.AddWithValue("@StockKeepingUnit", product.StockKeepingUnit);
-            command.Parameters.AddWithValue("@Barcode", product.Barcode);
+            command.Parameters.AddWithValue("@Ean8", product.Ean8);
+            command.Parameters.AddWithValue("@Ean13", product.Ean13);
             command.Parameters.AddWithValue("@SavedDateTime", product.SavedDateTime);
             command.Parameters.AddWithValue("@ProductName", product.ProductName);
             command.Parameters.AddWithValue("@ProductID", product.ProductID);
@@ -89,6 +91,7 @@ namespace ProductManagement.Entities
             _conection.Close();
 
         }
+
 
 
 

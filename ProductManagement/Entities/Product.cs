@@ -10,10 +10,10 @@ namespace ProductManagement.Entities
     {
         public int ProductID { get; set; }
         public string BoxNumber { get; set; }
-        public string StockKeepingUnit { get; set; }
-        public string Barcode { get; set; }
-        public string ProductName { get; set; }
+        public string Ean8 { get; set; }
+        public string Ean13 { get; set; }
         public DateTime SavedDateTime { get; set; }
+        public string ProductName { get; set; }
 
     }
 }
